@@ -1,6 +1,4 @@
-
-
-# cd "C:\Users\muhammad faiz\OneDrive\Desktop\work\python"
+# cd "C:\Users\muhammad faiz\OneDrive\Desktop\work\python\projects\UNIT-CONVERTER"
 # New-Item Converter.py
 # streamlit run Converter.py
 
@@ -39,7 +37,7 @@ st.markdown("""
             padding: 8px;
         }
         .stButton>button {
-            background-color: #4CAF50;
+            background-color: #35ab97;
             color: white;
             padding: 10px 20px;
             font-size: 16px;
@@ -48,7 +46,8 @@ st.markdown("""
             transition: 0.3s ease-in-out;
         }
         .stButton>button:hover {
-            background-color: #45a049;
+            background-color: black;
+            color: white;
         }
         .stSuccess {
             font-weight: bold;
@@ -140,10 +139,12 @@ def convert_units(value, conversion_type, unit_conversion):
 # If the user enters 5, the input will be displayed as 5.00 because of the "%.2f" format.
 value = st.number_input("Please enter the Value", min_value=0.0, format="%.2f")
 
+result = ""# result is now always defined (even before clicking the button). st.code(result, language="plaintext") just shows an empty box instead of crashing.
 # Convert Button
 if st.button("Convert"):
     # When the user clicks this button, the code inside the if block will execute.
-    if value == 0:
+    
+    if value <=  0:
         st.warning("Please enter a value greater than zero.")
     else:
         result = convert_units(value, conversion_type, unit_conversion)
@@ -155,3 +156,11 @@ if st.button("Convert"):
         
         st.success(result)  # Displays the result inside a green success message box.
         # This makes it clear to the user that the conversion was successful.
+st.code(result, language="plaintext")# making it easy for users to copy the result.
+
+
+    
+  
+     
+
+
